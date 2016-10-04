@@ -1,0 +1,1 @@
+ALTER TABLE project RENAME ds_slug  TO ds_key;

@@ -1,12 +1,12 @@
--- Researcher
+-- Researcher --
 
--- Add column "cd_uuid". 
+- Add column "cd_uuid". 
 ALTER TABLE researcher
   ADD COLUMN cd_uuid text;
 ALTER TABLE researcher
   ADD CONSTRAINT uq_cd_uuid UNIQUE (cd_uuid);
   
--- Add column "tp_confirmed".
+- Add column "tp_confirmed".
 ALTER TABLE researcher
   ADD COLUMN tp_confirmed smallint NOT NULL DEFAULT 0;
 ALTER TABLE researcher
@@ -14,3 +14,11 @@ ALTER TABLE researcher
 COMMENT ON CONSTRAINT ck_tp_confirmed ON researcher
   IS 'For ''tp_confirmed'' 0 is ''Account not confirmed'' and 1 is ''Confirmed Account''.';
 COMMENT ON COLUMN researcher.tp_confirmed IS 'For ''tp_confirmed'' 0 is ''Account not confirmed'' and 1 is ''Confirmed Account''.';
+
+-- Institution --
+
+- Add column "tp_confirmed".
+ALTER TABLE institution
+  ADD COLUMN ds_abbreviation character varying(10);
+ALTER TABLE institution
+  ADD CONSTRAINT uq_ds_abbreviation UNIQUE (ds_abbreviation);
